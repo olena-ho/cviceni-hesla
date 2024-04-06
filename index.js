@@ -27,3 +27,13 @@ const strongPassword = (len) => {
 
   return result;
 };
+
+const createAccount = (user, generatePassword) => {
+  return `Uživatel ${user} s heslem ${generatePassword(9)}`; // here we say that we'll use a variable for a name and we call one of the three password-generating funtions with (9) as parameter for length of the password, later when we call the function createAcount we specify which password-generating function we use (weak, medium or strong)
+}
+
+document.body.innerHTML += `
+	<p>${createAccount('Míša', weakPassword)}</p>
+	<p>${createAccount('Řízek', mediumPassword)}</p>
+	<p>${createAccount('Mápodčepicí', strongPassword)}</p>
+`;
